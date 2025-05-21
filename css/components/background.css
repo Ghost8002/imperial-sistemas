@@ -1,0 +1,97 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-negative);
+  overflow: hidden;
+  background: var(--gradient-dark);
+}
+
+.circle {
+  position: absolute;
+  border-radius: var(--radius-full);
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: float 15s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+  mix-blend-mode: overlay;
+}
+
+@keyframes float {
+  0% { 
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translateY(-20px) rotate(3deg) scale(1.05);
+    opacity: 0.35;
+  }
+  100% { 
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0.3;
+  }
+}
+
+.circle.one { 
+  width: 500px; 
+  height: 500px; 
+  background: var(--accent); 
+  top: -150px; 
+  left: -150px; 
+  animation-delay: 0s;
+  animation-duration: 20s;
+}
+
+.circle.two { 
+  width: 400px; 
+  height: 400px; 
+  background: var(--secondary); 
+  bottom: -100px; 
+  left: 50px; 
+  animation-delay: 2s;
+  animation-duration: 22s;
+}
+
+.circle.three { 
+  width: 350px; 
+  height: 350px; 
+  background: var(--primary); 
+  top: 100px; 
+  right: -50px; 
+  animation-delay: 4s;
+  animation-duration: 24s;
+}
+
+.circle.four { 
+  width: 300px; 
+  height: 300px; 
+  background: var(--accent-light); 
+  bottom: 50px; 
+  right: 100px; 
+  animation-delay: 6s;
+  animation-duration: 18s;
+}
+
+@media (max-width: 768px) {
+  .circle {
+    filter: blur(60px);
+  }
+  
+  .circle.one { width: 400px; height: 400px; }
+  .circle.two { width: 300px; height: 300px; }
+  .circle.three { width: 250px; height: 250px; }
+  .circle.four { width: 200px; height: 200px; }
+}
+
+@media (max-width: 480px) {
+  .circle {
+    filter: blur(40px);
+    opacity: 0.2;
+  }
+  
+  .circle.one { width: 300px; height: 300px; }
+  .circle.two { width: 250px; height: 250px; }
+  .circle.three { width: 200px; height: 200px; }
+  .circle.four { width: 150px; height: 150px; }
+} 
